@@ -52,7 +52,7 @@ def parse_protobuf_response(response_data):
 
 async def visit(session, url, token, uid, data):
     headers = {
-        "ReleaseVersion": "OB54",
+        "ReleaseVersion": "OB55",
         "X-GA": "v1 1",
         "Authorization": f"Bearer {token}",
         "Host": url.replace("https://", "").split("/")[0]
@@ -107,7 +107,7 @@ async def send_until_1000_success(tokens, uid, server_name, target_success=1000)
 def send_visits(server, uid):
     server = server.upper()
     tokens = load_tokens(server)
-    target_success = 1000
+    target_success = 3000
 
     if not tokens:
         return jsonify({"error": "❌ No valid tokens found"}), 500
